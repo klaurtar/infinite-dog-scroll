@@ -1,0 +1,29 @@
+html,
+body {
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.card {
+  float: left;
+  width: 48vw;
+  margin: 1%;
+  transform: translateX(100px);
+  opacity: 0;
+  transition: 150ms;
+}
+
+.card.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.card img {
+  width: 100%;
+  border-radius: 15px;
+  height: 30vh;
+  object-fit: cover;
+}
