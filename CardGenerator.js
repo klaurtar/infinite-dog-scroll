@@ -8,7 +8,7 @@ class CardGenerator {
     this.observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          entry.target.classList.toggle('show', entry.isIntersecting);
+          entry.target.classList.add('show', entry.isIntersecting);
           if (entry.isIntersecting) {
             this.observer.unobserve(entry.target);
           }
@@ -46,6 +46,17 @@ class CardGenerator {
   }
 
   lastFunc() {
+    if (this.$allCards.length > 12) {
+      this.$allCards.forEach((item, idx) => {
+        if (idx < 6) {
+          const scrollTop = this.$cardContainer.scrollTop;
+          const height = item.offsetHeight;
+          this.$cardContainer.scrollTo(0, Math.max(0, scrollTop - height));
+          item.remove();
+        }
+      });
+    }
+
     this.$allCards.forEach((card, idx) => {
       this.observer.observe(card);
     });
@@ -61,4 +72,4 @@ class CardGenerator {
   }
 }
 
-export default CardGenerator;
+const cardGenerator = new CardGenerator();
