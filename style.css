@@ -7,8 +7,12 @@ body {
   margin: 0;
 }
 
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .card {
-  float: left;
   width: 48vw;
   margin: 1%;
   transform: translateX(100px);
